@@ -70,5 +70,36 @@ my_lambdas = {
     "+": lambda W, Z: W + Z
 }
 
-print(my_lambdas["+"](5, 2))
-print(my_lambdas["*"](5, 3))
+# print(my_lambdas["+"](5, 2))
+# print(my_lambdas["*"](5, 3))
+
+
+# *** декоратор ***
+
+# Декоратор - функция, обертывающая другую (таргетную) функцию
+
+# Декоратор
+def my_decorator(func_object):
+    # функция-обертка
+    def wrapper(w):
+        # доп функциональность ДО вызова целевой функции
+        print("Before")
+        w = w + 2
+        # вызов целевой функции
+        func_object(w)
+        # доп функциональность ПОСЛЕ вызова целевой функции 
+        print("After")
+    # возврат объекта функции-обёртки 
+    return wrapper
+
+# новый способ примерения дикоратора
+@my_decorator
+# целефа (таргетная) функция
+def target_func(arg_1):
+    print("Hello! I am target func :)", arg_1)
+
+#  старый способ применения декоратора
+# target_func = my_decorator(target_func)
+
+target_func(10)
+
