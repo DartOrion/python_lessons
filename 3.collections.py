@@ -155,6 +155,17 @@ f = w & z              # второй вариант
 
 # разность
 f = w.difference(z)
+f = w & z 
 
-print(f)
+# разность
+f = w.difference(z)
+f = z.difference(w)
+f = w.symmetric_difference(z)
+# короткая запист difference
+f = w - z
+
+# самостоятельно поэкспериментироваться с оставшимися методами
+# рассмотреть модуль collections 
+
+# print(f)
 
